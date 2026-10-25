@@ -1,0 +1,343 @@
+
+/* =================================
+   1. COLOR PALETTE
+   กำหนดสีหลักของเว็บไซต์
+================================= */
+:root {
+  --bg: #f2eff7;
+  --lavender: #dcd3ec;
+  --lavender-dark: #b9a8d3;
+  --purple: #766486;
+  --purple-deep: #40334f;
+  --text: #40394a;
+  --muted: #898093;
+  --white: #ffffff;
+  --glass: rgba(255, 255, 255, 0.48);
+  --line: rgba(94, 75, 116, 0.13);
+}
+
+/* =================================
+   2. RESET & BASE
+   ตั้งค่าพื้นฐานให้ทุกองค์ประกอบ
+================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      #e8dff4 0,
+      transparent 38%
+    ),
+    linear-gradient(160deg, #f6f3fa, #e9e3f0);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =================================
+   3. FULL-SCREEN LAYOUT
+   เต็มหน้าจอ ไม่มีกรอบจำลองโทรศัพท์
+================================= */
+.phone {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: transparent;
+}
+
+.lock-screen,
+.home-screen,
+.app-view {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding:
+    calc(env(safe-area-inset-top, 0px) + 42px)
+    25px
+    calc(env(safe-area-inset-bottom, 0px) + 42px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =================================
+   4. LOCK SCREEN
+   หน้าจอแรกก่อนเข้าสู่หน้า Home
+================================= */
+.lock-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--purple-deep);
+  background:
+    radial-gradient(
+      ellipse at 50% 35%,
+      rgba(255, 255, 255, 0.8),
+      transparent 60%
+    ),
+    linear-gradient(155deg, #e7def2, #cfc2e2);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.clock {
+  margin: 18px 0 4px;
+  font-size: clamp(72px, 20vw, 112px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.date {
+  margin: 14px 0 36px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.unlock-button {
+  border: 1px solid rgba(94, 75, 116, 0.2);
+  border-radius: 999px;
+  padding: 14px 25px;
+  background: rgba(255, 255, 255, 0.35);
+  color: var(--purple-deep);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.unlock-button:active {
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* =================================
+   5. HOME SCREEN
+   หน้าหลักหลังปลดล็อก
+================================= */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(220, 211, 236, 0.8),
+      transparent 35%
+    ),
+    var(--bg);
+}
+
+.welcome {
+  padding-top: 18px;
+}
+
+.welcome h1 {
+  margin: 12px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 9vw, 46px);
+  line-height: 1.08;
+  font-weight: 400;
+  letter-spacing: -1.5px;
+  color: var(--purple-deep);
+}
+
+.welcome > p:last-child {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =================================
+   6. WIDGET
+   กล่องข้อมูลบนหน้าหลัก
+================================= */
+.widget {
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  background: var(--glass);
+  box-shadow: 0 12px 35px rgba(73, 56, 94, 0.06);
+  backdrop-filter: blur(18px);
+}
+
+.widget-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.widget h2 {
+  margin: 14px 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: var(--purple-deep);
+}
+
+.widget p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* =================================
+   7. APP ICONS
+   ปุ่มแอปบนหน้าหลัก
+================================= */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px 10px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.app-icon {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 66px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 21px;
+  background: linear-gradient(145deg, #e7def2, #cfc2e2);
+  box-shadow: 0 7px 18px rgba(73, 56, 94, 0.1);
+  color: var(--purple-deep);
+  font-size: 26px;
+  transition: transform 0.2s;
+}
+
+.app:active .app-icon {
+  transform: scale(0.93);
+}
+
+.home-note {
+  margin-top: auto;
+  padding-top: 16px;
+  text-align: center;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* =================================
+   8. APP VIEW
+   หน้าภายใน Gallery, Music ฯลฯ
+================================= */
+.app-view {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.back-button {
+  padding: 10px 0;
+  margin-bottom: 22px;
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#appContent h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--purple-deep);
+}
+
+#appContent p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* =================================
+   9. PHOTO GALLERY
+   รูปภาพในหน้า Gallery
+================================= */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.photo-grid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 17px;
+  background: var(--lavender);
+}
+
+/* =================================
+   10. SMALL SCREENS
+   ปรับระยะห่างสำหรับมือถือจอเล็ก
+================================= */
+@media (max-width: 360px) {
+  .lock-screen,
+  .home-screen,
+  .app-view {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .home-screen {
+    gap: 22px;
+  }
+
+  .app-grid {
+    gap: 14px 6px;
+  }
+
+  .app-icon {
+    border-radius: 17px;
+  }
+}
