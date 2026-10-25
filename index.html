@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#21152f">
+  <title>Velvet — My Fan Site</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="phone">
+
+    <section class="lock-screen" id="lock">
+      <p class="eyebrow">A LITTLE UNIVERSE OF YOU</p>
+      <h1 class="clock" id="clock">20:26</h1>
+      <p class="date" id="date">SUNDAY, OCTOBER 25</p>
+      <button id="unlock" class="unlock-button">
+        Tap to enter ✦
+      </button>
+    </section>
+
+    <section class="home-screen hidden" id="home">
+      <header class="welcome">
+        <p class="eyebrow">MY PRIVATE UNIVERSE</p>
+        <h1>Welcome home.</h1>
+        <p>A little place for my favorite person.</p>
+      </header>
+
+      <section class="widget">
+        <span class="widget-label">THE ARCHIVE</span>
+        <h2>Moments in violet.</h2>
+        <p>Memories, music and little things I love.</p>
+      </section>
+
+      <section class="app-grid">
+        <button class="app" data-app="Gallery">
+          <span class="app-icon">✧</span>
+          <span>Gallery</span>
+        </button>
+        <button class="app" data-app="Music">
+          <span class="app-icon">♫</span>
+          <span>Music</span>
+        </button>
+        <button class="app" data-app="Letters">
+          <span class="app-icon">✉</span>
+          <span>Letters</span>
+        </button>
+        <button class="app" data-app="About">
+          <span class="app-icon">☾</span>
+          <span>About</span>
+        </button>
+      </section>
+
+      <div class="home-note">made with love, under the same moon ♡</div>
+    </section>
+
+    <section class="app-view hidden" id="appView">
+      <button id="back" class="back-button">← Back</button>
+      <div id="appContent"></div>
+    </section>
+
+    <div class="home-indicator"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
